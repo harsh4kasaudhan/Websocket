@@ -78,16 +78,14 @@
         const messageInp = document.getElementById("input");
         const allMessages = document.getElementById("messages");
 
-        // Receive messages from server
         socket.on("message", (message) => {
             const li = document.createElement("li");
             li.innerText = message;
             allMessages.appendChild(li);
         });
 
-        // Send message to server
         sendBtn.addEventListener("click", (e) => {
-            e.preventDefault();  // stop form from reloading page
+            e.preventDefault();
 
             const message = messageInp.value.trim();
             if (!message) return;
